@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Project 2</string>
+    <string-array name="wild_animals">
+        <item>Cheetah</item>
+        <item>Crocodile</item>
+        <item>Elephant</item>
+        <item>Gazelle</item>
+        <item>Giraffe</item>
+        <item>Hippopotamus</item>
+        <item>Hyena</item>
+        <item>Lion</item>
+        <item>Rhinoceros</item>
+        <item>Tiger</item>
+        <item>Zebra</item>
+    </string-array>
+    <string-array name="url_animals">
+        <item>https://en.wikipedia.org/wiki/Cheetah</item>
+        <item>https://en.wikipedia.org/wiki/Crocodile</item>
+        <item>https://en.wikipedia.org/wiki/Elephant</item>
+        <item>https://en.wikipedia.org/wiki/Gazelle</item>
+        <item>https://en.wikipedia.org/wiki/Giraffe</item>
+        <item>https://en.wikipedia.org/wiki/Hippopotamus</item>
+        <item>https://en.wikipedia.org/wiki/Hyena</item>
+        <item>https://en.wikipedia.org/wiki/Lion</item>
+        <item>https://en.wikipedia.org/wiki/Rhinoceros</item>
+        <item>https://en.wikipedia.org/wiki/Tiger</item>
+        <item>https://en.wikipedia.org/wiki/Zebra</item>
+    </string-array>
+</resources>
