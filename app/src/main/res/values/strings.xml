@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Project 2</string>
+    <string name = "grid">Grid</string>
+    <string name="list">List</string>
+    <string name="web_page">Web page</string>
+    <string name="display_image">Display Image</string>
     <string-array name="wild_animals">
         <item>Cheetah</item>
         <item>Crocodile</item>
