@@ -1,6 +1,6 @@
 package com.cs478.sofialucca.project_2;
 import android.content.Context;
-import android.content.Intent;
+
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -18,12 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private ArrayList<String> nameList; //data: the names displayed
-    private ArrayList<Integer> pictureList;
+    private final ArrayList<String> nameList; //data: the names displayed
+    private final ArrayList<Integer> pictureList;
     private String currentOrientation;
-    private RVClickListener RVlistener; //listener defined in main activity
-    private RVClickListener CMlistener;
-    // private Context context;
+    private final RVClickListener RVlistener; //listener defined in main activity
+    private final RVClickListener CMlistener;
 
     /*
     passing in the data and the listener defined in the main activity
@@ -84,19 +83,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         public TextView name;
         public ImageView image;
-        private RVClickListener listener;
-        private RVClickListener contextMenuOnClick;
-        private View itemView;
+        private final RVClickListener listener;
+        private final RVClickListener contextMenuOnClick;
+        private final View itemView;
         private String currentOrientation;
-        private LinearLayout.LayoutParams paramGridImage;
-        private LinearLayout.LayoutParams paramGridText;
-        private LinearLayout.LayoutParams paramListImage;
-        private LinearLayout.LayoutParams paramListText;
+        private final LinearLayout.LayoutParams paramGridImage;
+        private final LinearLayout.LayoutParams paramGridText;
+        private final LinearLayout.LayoutParams paramListImage;
+        private final LinearLayout.LayoutParams paramListText;
 
         public ViewHolder(@NonNull View itemView, RVClickListener passedListener, RVClickListener contextMenuOnClick) {
             super(itemView);
-            name = (TextView) itemView.findViewById(R.id.textView);
-            image = (ImageView) itemView.findViewById(R.id.imageView);
+            name = itemView.findViewById(R.id.textView);
+            image = itemView.findViewById(R.id.imageView);
             paramGridImage = new LinearLayout.LayoutParams((LinearLayout.LayoutParams) image.getLayoutParams());
             paramGridText = new LinearLayout.LayoutParams((LinearLayout.LayoutParams) name.getLayoutParams());
             paramListImage = new LinearLayout.LayoutParams(paramGridImage);
@@ -161,40 +160,35 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             inflater.inflate(R.menu.context_menu, menu );
 
 
-            menu.getItem(0).setOnMenuItemClickListener(onMenu);
-            menu.getItem(1).setOnMenuItemClickListener(onMenu);
-/*             menu.getItem(2).setOnMenuItemClickListener(onMenu);
-            menu.getItem(3).setOnMenuItemClickListener(onMenu);
+            menu.getItem(0).setOnMenuItemClickListener(onMenuWebAccess);
+            menu.getItem(1).setOnMenuItemClickListener(onMenuImageDisplay);
 
-          /*  //create menu in code
-
-            menu.setHeaderTitle("My context menu");
-
-            //add menu items and set the listener for each
-            menu.add(0,v.getId(),0,"option 1").setOnMenuItemClickListener(onMenu);
-            menu.add(0,v.getId(),0,"option 2").setOnMenuItemClickListener(onMenu);
-            menu.add(0,v.getId(),0,"option 3").setOnMenuItemClickListener(onMenu);
-
-*/
         }
 
         /*
             listener for menu items clicked
          */
-        private final MenuItem.OnMenuItemClickListener onMenu = new MenuItem.OnMenuItemClickListener(){
+        private final MenuItem.OnMenuItemClickListener onMenuWebAccess = new MenuItem.OnMenuItemClickListener(){
             @Override
             public boolean onMenuItemClick(MenuItem item){
-                switch(item.getItemId()){
-                    case (R.id.web_page):
-                        listener.onClick(itemView, getAdapterPosition());
-                        return true;
-                    case (R.id.display_image):
-                        contextMenuOnClick.onClick(itemView, getAdapterPosition());
-
-                        return true;
-                    default:
-                        return false;
+                if(item.getItemId() == R.id.web_page){
+                    Log.i("context menu", "web access");
+                    listener.onClick(itemView, getAdapterPosition());
+                    return true;
                 }
+                return false;
+
+            }
+        };
+        private final MenuItem.OnMenuItemClickListener onMenuImageDisplay = new MenuItem.OnMenuItemClickListener(){
+            @Override
+            public boolean onMenuItemClick(MenuItem item){
+                if(item.getItemId() == R.id.display_image){
+                    contextMenuOnClick.onClick(itemView, getAdapterPosition());
+                    return true;
+                }
+                return false;
+
             }
         };
 

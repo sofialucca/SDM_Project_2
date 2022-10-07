@@ -4,6 +4,7 @@
     <string name="list">List</string>
     <string name="web_page">Web page</string>
     <string name="display_image">Display Image</string>
+    <string name = "image_description">image_animal</string>
     <string-array name="wild_animals">
         <item>Cheetah</item>
         <item>Crocodile</item>
