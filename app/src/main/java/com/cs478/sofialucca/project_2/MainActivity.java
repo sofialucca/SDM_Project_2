@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                     ((MyAdapter) nameView.getAdapter()).setCurrentOrientation(current);
                     nameView.setLayoutManager(new LinearLayoutManager(this));
                 }
+                return true;
             default:
                 return false;
         }
